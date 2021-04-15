@@ -1,0 +1,30 @@
+<%@page import="java.util.List"%>
+<%@ page import="com.mega.project.CPUDAO"%>
+<%@ page import="com.mega.project.CPUVO"%>
+<%@ page import="com.mega.project.GraphicDAO"%>
+<%@ page import="com.mega.project.GraphicVO"%>
+<%@ page import="com.mega.project.MemoryDAO"%>
+<%@ page import="com.mega.project.MemoryVO"%>
+<%@ page import="com.mega.project.MainBoardDAO"%>
+<%@ page import="com.mega.project.MainBoardVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<li id="ui-widget-recommand">
+	<img src="${vo.img}"><br><br>
+	${vo.subject}/${vo.company}/<br>
+	${vo.indate}/${vo.sort}/${vo.socket}/${vo.generation}/<br>
+	${vo.birth}/${vo.chipline}/${vo.pcie}/${vo.maxpcie}/${vo.fee}원<br><br>
+	<img src="${vo.img}"><br><br>
+	${vo.subject}/<br>
+	${vo.company}/${vo.indate}/${vo.series}/<br>
+	${vo.chipline}/${vo.chipset}/${vo.base}/<br>
+	${vo.boost}/${vo.cuda}/${vo.itf}/${vo.fee}원<br><br>
+	<img src="${vo.img}"><br><br>
+	${vo.subject}/${vo.company}/<br>                              
+	${vo.indate}/${vo.socket}/${vo.lineup}/<br>
+	${vo.chipset}/${vo.factor}/${vo.power}/${vo.fee}원<br><br>
+	<img src="${vo.img}"><br><br>
+	${vo.subject}/${vo.company}/${vo.indate}/${vo.use}/<br>
+	${vo.classify}/${vo.standard}/${vo.capacity}/${vo.pack}개/${vo.clock}/<br>
+	${vo.ramtime}/${vo.voltage}/${vo.heatsink}/${vo.fee}원<br><br>
+</li>

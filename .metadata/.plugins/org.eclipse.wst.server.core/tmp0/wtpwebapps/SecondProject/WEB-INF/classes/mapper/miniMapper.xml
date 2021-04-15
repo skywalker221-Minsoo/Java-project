@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mini">
+	<insert id="insert" parameterType="miniVO">
+		insert into MINI values (#{mini_name}, #{mini_content}, #{mini_image}, #{mini_price})
+	</insert>
+	<select id="select" parameterType="miniVO">
+		select * from MINI where mini_name = #{mini_name}
+	</select>
+	<select id="all" resultType="miniVO">
+		select * from MINI
+	</select>
+</mapper>

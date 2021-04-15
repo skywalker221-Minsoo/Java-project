@@ -1,0 +1,194 @@
+package com.mega.project;
+
+import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class DanawaController {
+	
+	@Autowired 
+	CPUDAO dao;
+	
+	@Autowired
+	GraphicDAO dao2;
+	
+	@Autowired
+	MainBoardDAO dao3;
+	
+	@Autowired
+	MemoryDAO dao4;
+	
+	@Autowired
+	MemberDAO dao5;
+	
+	@RequestMapping("danawa_main")
+	public void all(Model model) {
+		List<CPUVO> list = dao.all1();
+		model.addAttribute("list_CPU", list);
+	}
+	
+	@RequestMapping("cpu_button")
+	public void cpu_button(Model model) {
+		List<CPUVO> list = dao.all1();
+		model.addAttribute("list_CPU", list);
+	}
+	
+	@RequestMapping("mainboard_button")
+	public void mainboard_button(Model model) {
+		List<MainBoardVO> list = dao3.all1();
+		model.addAttribute("list_MainBoard", list);
+	}
+	
+	@RequestMapping("memory_button")
+	public void memory_button(Model model) {
+		List<MemoryVO> list = dao4.all1();
+		model.addAttribute("list_Memory", list);
+	}
+	
+	@RequestMapping("graphic_button")
+	public void graphic_button(Model model) {
+		List<GraphicVO> list = dao2.all1();
+		model.addAttribute("list_Graphic", list);
+	}
+	
+	@RequestMapping("loginSession")
+	public String login(MemberVO bag, HttpSession session) {
+		MemberVO vo = dao5.login(bag);
+		if(vo != null) {
+			System.out.println("id/pw �씪移�.");
+			session.setAttribute("userId", vo.getId());
+			return "redirect:login.jsp";
+		}else {
+			System.out.println("id/pw 遺덉씪移�.");
+			return "no";
+		}
+	}
+	
+	@RequestMapping("find")
+	public void find(String subject, Model model) {
+		List<CPUVO> list = dao.find(subject);
+		model.addAttribute("list_CPU", list);
+		List<MemoryVO> list2 = dao4.find(subject);
+		model.addAttribute("list_Memory", list2);
+		List<MainBoardVO> list3 = dao3.find(subject);
+		model.addAttribute("list_MainBoard", list3);
+		List<GraphicVO> list4 = dao2.find(subject);
+		model.addAttribute("list_Graphic", list4);
+	}
+	
+	@RequestMapping("cpu")
+	public void one(CPUVO bag, Model model) {
+		CPUVO vo = dao.read(bag);
+		if (vo.getId().equals("1")) {
+			List<CPUVO> list = dao.all1();
+			model.addAttribute("list_CPU", list);
+		}
+		else if (vo.getId().equals("2")) {
+			List<CPUVO> list = dao.all2();
+			model.addAttribute("list_CPU", list);
+		}
+		else if (vo.getId().equals("3")) {
+			List<CPUVO> list = dao.all3();
+			model.addAttribute("list_CPU", list);
+		}
+		else if (vo.getId().equals("4")) {
+			List<CPUVO> list = dao.all4();
+			model.addAttribute("list_CPU", list);
+		}
+	}
+	
+	@RequestMapping("mainboard")
+	public void two(MainBoardVO bag, Model model) {
+		MainBoardVO vo = dao3.read(bag);
+		if (vo.getId().equals("1")) {
+			List<MainBoardVO> list = dao3.all1();
+			model.addAttribute("list_MainBoard", list);
+		}
+		else if (vo.getId().equals("2")) {
+			List<MainBoardVO> list = dao3.all2();
+			model.addAttribute("list_MainBoard", list);
+		}
+		else if (vo.getId().equals("3")) {
+			List<MainBoardVO> list = dao3.all3();
+			model.addAttribute("list_MainBoard", list);
+		}
+		else if (vo.getId().equals("4")) {
+			List<MainBoardVO> list = dao3.all4();
+			model.addAttribute("list_MainBoard", list);
+		}
+	}
+	
+	@RequestMapping("memory")
+	public void three(MemoryVO bag, Model model) {
+		MemoryVO vo = dao4.read(bag);
+		if (vo.getId().equals("1")) {
+			List<MemoryVO> list = dao4.all1();
+			model.addAttribute("list_Memory", list);
+		}
+		else if (vo.getId().equals("2")) {
+			List<MemoryVO> list = dao4.all2();
+			model.addAttribute("list_Memory", list);
+		}
+		else if (vo.getId().equals("3")) {
+			List<MemoryVO> list = dao4.all3();
+			model.addAttribute("list_Memory", list);
+		}
+		else if (vo.getId().equals("4")) {
+			List<MemoryVO> list = dao4.all4();
+			model.addAttribute("list_Memory", list);
+		}
+	}
+	
+	@RequestMapping("graphic")
+	public void four(GraphicVO bag, Model model) {
+		GraphicVO vo = dao2.read(bag);
+		if (vo.getId().equals("1")) {
+			List<GraphicVO> list = dao2.all1();
+			model.addAttribute("list_Graphic", list);
+		}
+		else if (vo.getId().equals("2")) {
+			List<GraphicVO> list = dao2.all2();
+			model.addAttribute("list_Graphic", list);
+		}
+		else if (vo.getId().equals("3")) {
+			List<GraphicVO> list = dao2.all3();
+			model.addAttribute("list_Graphic", list);
+		}
+		else if (vo.getId().equals("4")) {
+			List<GraphicVO> list = dao2.all4();
+			model.addAttribute("list_Graphic", list);
+		}
+	}
+	
+	@RequestMapping("random")
+	public void random(CPUVO bag, GraphicVO bag2, MainBoardVO bag3, 
+			MemoryVO bag4, Model model) {
+		CPUVO vo = dao.random(bag);
+		model.addAttribute("vo", vo);
+		GraphicVO vo2 = dao2.random(bag2);
+		model.addAttribute("vo2", vo2);
+		MainBoardVO vo3 = dao3.random(bag3);
+		model.addAttribute("vo3", vo3);
+		MemoryVO vo4 = dao4.random(bag4);
+		model.addAttribute("vo4", vo4);
+		int sum = Integer.parseInt(vo.getFee())+
+				Integer.parseInt(vo2.getFee())+
+				Integer.parseInt(vo3.getFee())+
+				Integer.parseInt(vo4.getFee());
+		DecimalFormat won = new DecimalFormat("###,###");
+		model.addAttribute("sum", sum);
+	}
+
+}

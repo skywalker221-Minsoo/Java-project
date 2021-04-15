@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;크롤링저장연습다시2.java&apos; to &apos;SecondProject_Web/src/crawling&apos;&#x0D;&#x0A;- Original project: &apos;java12&apos;&#x0D;&#x0A;- Destination element: &apos;SecondProject_Web/src/crawling&apos;&#x0D;&#x0A;- Original element: &apos;크롤링.크롤링저장연습다시2.java&apos;" description="Copy compilation unit" destination="=SecondProject_Web/src&lt;crawling" element1="/src&lt;크롤링{크롤링저장연습다시2.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1615253153793" units="1" version="1.0"/>
+</session>

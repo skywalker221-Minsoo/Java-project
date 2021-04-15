@@ -1,0 +1,10 @@
+package 배열;
+
+public class 영화예매버튼 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

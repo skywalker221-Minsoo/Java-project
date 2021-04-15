@@ -1,0 +1,42 @@
+package com.mega.project;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class LoginController {
+	@Autowired
+	LoginDAO dao;
+	
+	@RequestMapping("insert")
+	public void insert(LoginVO loginVO) throws Exception {
+		dao.create(loginVO);
+	}
+	
+	@RequestMapping("delete")
+	public void delete(LoginVO loginVO) throws Exception {
+		dao.delete(loginVO);
+}
+	@RequestMapping("update")
+	public void update(LoginVO loginVO) throws Exception {
+		dao.update(loginVO);
+}
+	
+	@RequestMapping("enter")
+	public String login(LoginVO bag, HttpSession session) {
+		 LoginVO vo = dao.enter(bag);
+		 System.out.println("=============" + vo);
+		 if(vo != null) {
+			 System.out.println("�빐�떦 id/pw媛� �엳�쓬.");
+			 session.setAttribute("user_Id", vo.getUser_id());
+			 return "redirect:danawa_main";
+//			 return "ok";
+		 }else {
+			 System.out.println("�빐�떦 id/pw媛� �뾾�쓬.");
+			 return "no";
+		 }
+	}
+}

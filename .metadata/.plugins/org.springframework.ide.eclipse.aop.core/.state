@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="spring3000"/>
+<aop-project name="spring3839"/>
+<aop-project name="spring400"/>
+<aop-project name="spring370"/>
+<aop-project name="spring40"/>
+<aop-project name="spring37"/>
+<aop-project name="spring00"/>
+<aop-project name="spring39"/>
+<aop-project name="spring2000"/>
+<aop-project name="SecondProject"/>
+<aop-project name="springtest01"/>
+<aop-project name="spring1000"/>
+<aop-project name="spring41"/>
+<aop-project name="spring43"/>
+<aop-project name="springtest02"/>
+</aop-reference-model>
