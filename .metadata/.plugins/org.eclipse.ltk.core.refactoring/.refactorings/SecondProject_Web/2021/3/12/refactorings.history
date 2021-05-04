@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy 2 elements to &apos;SecondProject/src/main/java/com.mega.mvc2&apos;&#x0D;&#x0A;- Original project: &apos;SecondProject_Web&apos;&#x0D;&#x0A;- Destination element: &apos;SecondProject/src/main/java/com.mega.mvc2&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     crawling.crawling.java&#x0D;&#x0A;     crawling.크롤링기본.java" description="Copy compilation units" destination="=SecondProject/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.mega.mvc2" element1="/src&lt;crawling{crawling.java" element2="/src&lt;crawling{크롤링기본.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1616049983769" units="2" version="1.0"/>
-</session>
