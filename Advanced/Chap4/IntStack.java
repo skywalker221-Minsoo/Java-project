@@ -39,7 +39,7 @@ public class IntStack {
 	//스택에서 데이터를 팝(정상에 있는 데이터를 꺼냄)
 	public int pop() throws EmptyIntStackException {
 		if (ptr <= 0)
-			throw new OverflowIntStackException();
+			throw new EmptyIntStackException();
 		return stk[--ptr];
 	}
 	

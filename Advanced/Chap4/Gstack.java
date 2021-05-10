@@ -51,7 +51,8 @@ public class Gstack<E> {
 	//스택에서 x를 찾아 인덱스(없으면 -1)를 반환
 	public int indexOf(E x) {	//제너릭 형태인 x가 들어옴
 		for (int i = ptr - 1; i >= 0; i--)	//정상 쪽에서 선형 검색
-			if (stk[i].equals(x))	//함수 자체는 리턴값을 보낼수 있는 int지만 제너릭 형태로 들어오는 x이므로 논리연산자 사용 불가.
+			//주소값을 비교(==) 하는게 아니라 데이터값을 비교(.equals)로 어떤 형태가 와도 비교할수있게함.
+			if (stk[i].equals(x))
 				return i;
 		return -1;	
 	}
